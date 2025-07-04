@@ -1,0 +1,292 @@
+:root {
+    --light-bg: #fff0f5;
+    --btn-color: #fc99ae;
+    --btn-color-hover: #fa7a96;
+    --sum-color: #fd6586;
+    --btn-reset-color: #f8436a;
+    --btn-reset-color-hover: #fd073c;
+
+    --dark-bg: #41393b;
+    --dark-day-color: #77676d;
+    --dark-day-result-color: #f8f8f8;
+    --dark-sum-color: #fa98ad;
+    --dark-day-sum-color: #fd315d;
+    --dark-btn-color: #fdaabc;
+    --dark-btn-reset-color: #fd6183;
+    --dark-btn-reset-color-hover: #fd4069;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-bg);
+    padding: 20px;
+    color: #333;
+}
+
+[data-theme="dark"] {
+    background-color: var(--dark-bg);
+}
+
+[data-theme="dark"] body {
+    background-color: var(--dark-bg);
+    color: #333;
+    color: #eee;
+}
+
+[data-theme="dark"] .day {
+    background-color: var(--dark-day-color);
+}
+
+[data-theme="dark"] .day-result {
+    border-radius: 6px;
+    background-color: var(--dark-day-result-color);
+    color:#1e1e1e;
+    border: 1px solid #ccc;
+    padding: 8px 10px;
+    font-size: 16px;
+}
+
+[data-theme="dark"] #total {
+    color: var(--dark-sum-color);
+}
+
+[data-theme="dark"] .day-sum {
+    color: var(--dark-day-sum-color);
+}
+
+[data-theme="dark"] button {
+    background-color: var(--dark-btn-color);
+}
+
+[data-theme="dark"] #reset {
+    background-color: var(--dark-btn-reset-color);
+}
+
+[data-theme="dark"] #reset:hover {
+    background-color: var(--dark-btn-reset-color-hover);
+    color: black;
+}
+
+[data-theme="dark"] .modal-content {
+    background-color: var(--dark-day-color);
+}
+
+#toggle-theme {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+#total {
+    color: var(--sum-color);
+    font-weight: bold;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 10px 18px;
+    background-color: var(--btn-color);
+    color: #050505;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: var(--btn-color-hover);
+    transform: scale(1.02);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.day {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.revenue {
+    flex: 1 1 120px;
+    padding: 8px 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.percent {
+    flex: 0 0 80px;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.delete-day {
+    background-color: var(--btn-color);
+    font-size: 18px;
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+.delete-day:hover {
+    background-color: var(--btn-color-hover);
+}
+
+.delete-day:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.day-number {
+    font-weight: bold;
+    margin-right: 10px;
+}
+.day-result {
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    padding: 8px 10px;
+    font-size: 16px;
+}
+
+.day-sum {
+    color: var(--sum-color);
+    font-weight: bold;
+}
+
+input .invalid {
+    border: 2px solid #f72754;
+    background-color: #ffe5e5;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+}
+
+.modal-content h2 {
+    margin-top: 10px;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin: 15px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.modal-content button {
+    width: 100%;
+    background-color: var(--btn-color);
+}
+
+.modal-content button:hover {
+    background-color: var(--btn-color-hover);
+}
+
+#close-modal {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #888;
+}
+
+#close-modal:hover {
+    color: black;
+}
+
+.hidden {
+    display: none;
+}
+
+#reset {
+    background-color: var(--btn-reset-color);
+    color: black;
+    transition: 0.15s linear;
+}
+
+#reset:hover {
+    background-color: var(--btn-reset-color-hover);
+    color: whitesmoke;
+}
+
+.revenue, .percent, .day-result, .delete-day {
+    height: 38px;
+    max-height: 38px;
+}
+
+@media (max-width: 600px) {
+    .day {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .buttons button {
+        width: 100%;
+    }
+}
