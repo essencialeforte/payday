@@ -29,7 +29,7 @@ window.addEventListener("DOMContentLoaded", () => {
     updateTotal();
 });
 
-function addDay (revenue = "", percent = 3) {
+function addDay (revenue = "", percent = 5) {
     if (dayContainer.children.length >= MAX_DAYS) {
         alert(`Нельзя добавить больше ${MAX_DAYS} дней.`);
         return;
