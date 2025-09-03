@@ -76,7 +76,7 @@ function updateTotal() {
             if (revenueRaw === "" || isNaN(revenue)) revenue = 0;
         }
         const percent = parseInt(dayEl.querySelector(".percent").value);
-        const daily = 1500 + (revenue * percent) / 100;
+        const daily = 1700 + (revenue * percent) / 100;
         /*dayEl.querySelector(".day-result").textContent = `Итого за день: ${Math.round(daily)} ₽`*/
         dayEl.querySelector(".day-sum").textContent = `${Math.round(daily)} ₽`;
         total += daily;
@@ -152,3 +152,4 @@ window.addEventListener("DOMContentLoaded", () => {
 
     //document.body.classList.add(savedTheme);
 });
+
